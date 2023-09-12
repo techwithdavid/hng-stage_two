@@ -14,7 +14,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS person (
 connect.commit()
 connect.close()
 
-@app.route('api/<int:user_id>', methods=['GET'])
+@app.route('/api/<int:user_id>', methods=['GET'])
 def retrieve_person(user_id):
     try:
         connect = s3.connect('hng_stage_two.db')
