@@ -24,8 +24,10 @@ def retrieve_person(user_id):
 
         data = cursor.fetchone()
 
-        for d in data:
-            return jsonify(d)
+        if data is None:
+            abort(404)
+        data_to_dict = {"id": data[0], "name": data[1]}
+        return jsonify(data_to_dict)
     except:
         return jsonify({'status': 'Not successful'})
 
