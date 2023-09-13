@@ -36,7 +36,7 @@ def retrieve_person(user_id):
                         'message': str(e)
             })
 
-@app.route('/api', methods=['POST'])
+@app.route('/api', methods=['GET', 'POST'])
 def create_person():
     try:
         connect = s3.connect('hng_stage_two.db')
