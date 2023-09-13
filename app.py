@@ -100,6 +100,21 @@ def update_user(user_id):
             "message": str(e)
             })
 
+@app.route('/api/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    try:
+        connect = s3.connect('hng_stage_two.db')
+        cursor = connect.cursor()
+        cursor.execute('DELETE * FROM person WHERE id = ?', (user_id,))
+        connect.commit()
+        connect.close()
+
+        return jsonify({"status": "Successful"})
+    except Exception as e:
+        return jsonify({
+            "status": "Not successful",
+            "message": str(e)
+            })
 
 if __name__=="__main__":
     app.run(debug=True)
