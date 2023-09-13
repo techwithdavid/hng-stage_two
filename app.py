@@ -10,11 +10,6 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS person (
         name VARCHAR(256))'''
         )
 
-# cursor.execute('INSERT INTO person (name) VALUES ("Ola")')
-cursor.execute('SELECT * FROM person')
-
-print(cursor.fetchall())
-
 connect.commit()
 connect.close()
 
