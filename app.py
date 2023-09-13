@@ -11,6 +11,8 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS person (
         PRIMARY KEY (id))'''
         )
 
+cursor.execute('INSERT INTO person (name) VALUES ("David")')
+
 connect.commit()
 connect.close()
 
@@ -25,6 +27,10 @@ def retrieve_person(user_id):
         return jsonfiy(data)
     except:
         return jsonify({'status': 'Not successful'})
+
+@app.route('/api', methods=['POST'])
+def create_person():
+    pass
 
 if __name__=="__main__":
     app.run(debug=True)
