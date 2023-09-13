@@ -55,9 +55,11 @@ def create_person():
                         "id": person[0],
                         "name": person[1]
                         }
-                persons_to_list.append(persons_to_dict)
+                persons_to_list.append(person_to_dict)
 
             return jsonify(persons_to_list)
+        elif request.method == 'POST':
+            pass
     except Exception as e:
         return jsonify({
             "status": "Not successful",
