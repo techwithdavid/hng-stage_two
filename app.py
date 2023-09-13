@@ -80,7 +80,7 @@ def create_person():
 
 @app.route('/api/<int:user_id>', methods=['PUT'])
 def update_user(user_id):
-    if not request.json():
+    if not request.json:
         abort(400)
 
     data = request.get_json()
