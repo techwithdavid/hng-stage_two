@@ -10,7 +10,10 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS person (
         name VARCHAR(256))'''
         )
 
-cursor.execute('INSERT INTO person (name) VALUES ("Ola")')
+# cursor.execute('INSERT INTO person (name) VALUES ("Ola")')
+cursor.execute('SELECT * FROM person')
+
+print(cursor.fetchall())
 
 connect.commit()
 connect.close()
@@ -21,19 +24,46 @@ def retrieve_person(user_id):
         connect = s3.connect('hng_stage_two.db')
         cursor = connect.cursor()
         cursor.execute('SELECT * FROM person WHERE id=?', (user_id,))
-
         data = cursor.fetchone()
+        connect.close()
 
         if data is None:
             abort(404)
         data_to_dict = {"id": data[0], "name": data[1]}
         return jsonify(data_to_dict)
-    except:
-        return jsonify({'status': 'Not successful'})
+    except Exception as e:
+        return jsonify({'status': 'Not successful', 
+                        'message': str(e)
+            })
 
 @app.route('/api', methods=['POST'])
 def create_person():
-    pass
+    try:
+        connect = s3.connect('hng_stage_two.db')
+        cursor = connect.cursor()
+
+        if request.method == 'GET':
+            cursor.execute('SELECT * FROM person')
+            persons = cursor.fetchall()
+            connect.close()
+            
+            if persons is None:
+                abort(404)
+            persons_to_list = []
+            for person in persons:
+                person_to_dict = {
+                        "id": person[0],
+                        "name": person[1]
+                        }
+                persons_to_list.append(persons_to_dict)
+
+            return jsonify(persons_to_list)
+    except Exception as e:
+        return jsonify({
+            "status": "Not successful",
+            "message": str(e)
+            })
+
 
 if __name__=="__main__":
     app.run(debug=True)
