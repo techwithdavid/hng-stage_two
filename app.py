@@ -78,6 +78,28 @@ def create_person():
             "message": str(e)
             })
 
+@app.route('/api/<int:user_id>')
+def update_user(user_id):
+    if not request.json():
+        abort(400)
+
+    data = request.get_json()
+    name = data['name']
+
+    try:
+        connect = s3.connect('hng_stage_two.db')
+        cursor = connect.cursor()
+        cursor.execute('UPDATE person SET name = ? WHERE id = ?', (name, user_id))
+        connect.commit()
+        connect.close()
+
+        return jsonify({"status": "Successful"})
+    except Exception as e:
+        return jsonify({
+            "status": "Not successful",
+            "message": str(e)
+            })
+
 
 if __name__=="__main__":
     app.run(debug=True)
