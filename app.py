@@ -6,12 +6,11 @@ app = Flask(__name__)
 connect = s3.connect('hng_stage_two.db')
 cursor = connect.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS person (
-        id INT AUTOINCREMEMT,
-        name VARCHAR(256),
-        PRIMARY KEY (id))'''
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name VARCHAR(256))'''
         )
 
-cursor.execute('INSERT INTO person (name) VALUES ("David")')
+cursor.execute('INSERT INTO person (name) VALUES ("Ola")')
 
 connect.commit()
 connect.close()
