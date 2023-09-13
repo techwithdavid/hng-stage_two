@@ -24,13 +24,13 @@ def retrieve_person(user_id):
         connect = s3.connect('hng_stage_two.db')
         cursor = connect.cursor()
         cursor.execute('SELECT * FROM person WHERE id=?', (user_id,))
-        data = cursor.fetchone()
+        person = cursor.fetchone()
         connect.close()
 
-        if data is None:
+        if person is None:
             abort(404)
-        data_to_dict = {"id": data[0], "name": data[1]}
-        return jsonify(data_to_dict)
+        person_to_dict = {"id": person[0], "name": person[1]}
+        return jsonify(person_to_dict)
     except Exception as e:
         return jsonify({'status': 'Not successful', 
                         'message': str(e)
