@@ -43,4 +43,4 @@ Or more conviniently:
 python app.py
 ```
 
-** All endpoints have been tested with curl and they worked. You can find all the commands I used with the responses returned by these emdpoints in [DOCUMENTATION.md](/DOCUMENTATION.md). **
+**All endpoints have been tested with curl and they worked. You can find all the commands I used with the responses returned by these emdpoints in [DOCUMENTATION.md](/DOCUMENTATION.md).**
