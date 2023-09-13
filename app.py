@@ -78,7 +78,7 @@ def create_person():
             "message": str(e)
             })
 
-@app.route('/api/<int:user_id>')
+@app.route('/api/<int:user_id>', methods=['PUT'])
 def update_user(user_id):
     if not request.json():
         abort(400)
