@@ -26,7 +26,7 @@ def retrieve_person(user_id):
         data = cursor.fetchone()
 
         for d in data:
-            return jsonfiy(d)
+            return jsonify(d)
     except:
         return jsonify({'status': 'Not successful'})
 
