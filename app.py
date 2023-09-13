@@ -59,7 +59,16 @@ def create_person():
 
             return jsonify(persons_to_list)
         elif request.method == 'POST':
-            pass
+            if not request.json:
+                abort(400)
+
+            data = request.get_json()
+            name = data['name']
+
+            cursor.execute('INSERT INTO person (name) VALUES (?)', (name,))
+            return jsonify({
+                "status": "Successful"
+                }), 201
     except Exception as e:
         return jsonify({
             "status": "Not successful",
