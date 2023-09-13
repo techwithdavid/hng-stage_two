@@ -66,6 +66,9 @@ def create_person():
             name = data['name']
 
             cursor.execute('INSERT INTO person (name) VALUES (?)', (name,))
+            connect.commit()
+            connect.close()
+
             return jsonify({
                 "status": "Successful"
                 }), 201
