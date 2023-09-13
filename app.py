@@ -24,7 +24,9 @@ def retrieve_person(user_id):
         cursor.execute('SELECT * FROM person WHERE id=?', (user_id,))
 
         data = cursor.fetchone()
-        return jsonfiy(data)
+
+        for d in data:
+            return jsonfiy(d)
     except:
         return jsonify({'status': 'Not successful'})
 
