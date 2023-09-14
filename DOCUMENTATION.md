@@ -63,6 +63,7 @@ Updates the name of a person by ID
 curl command
 ```
 curl https://twd-hng-crud-app.onrender.com/api/3 -X PUT -H "Content-Type: application/json" -d '{"name": "Techwithdavid"}'
+```
 
 response:
 ```
@@ -70,3 +71,22 @@ response:
     "status": "Successful"
 }
 ```
+
+### DELETE /api/user_id
+Deletes a person by ID
+
+curl command:
+```
+curl https://twd-hng-crud-app.onrender.com/api/5 -X DELETE
+```
+
+response:
+```
+{
+    "status": "Successful"
+}
+```
+
+# Deployment
+
+This API is deployed on render and can be accessed (here)[https://twd-hng-crud-app.onrender.com/api]
