@@ -1,6 +1,7 @@
 # Endpoints
 
 ### GET /api
+returns all persons
 
 curl command:
 ```
@@ -23,7 +24,26 @@ response:
 	"name":"Ola"
     },
     {
-	"id":4,"name":"Ola"
+	"id":4,
+	"name":"Ola"
     }
+]
+```
+
+### GET /api/user_id
+returns one person by ID
+
+curl command:
+```
+curl https://twd-hng-crud-app.onrender.com/api/1
+```
+
+response:
+```
+[
+    {
+        "id":1,
+        "name":"David"
+    },
 ]
 ```
