@@ -63,9 +63,10 @@ Updates the name of a person by ID
 curl command
 ```
 curl https://twd-hng-crud-app.onrender.com/api/3 -X PUT -H "Content-Type: application/json" -d '{"name": "Techwithdavid"}'
-```
 
 response:
-```                                                                         {                                                                               "status": "Successful"                                                  }                                                                           ```
-
-
+```
+{
+    "status": "Successful"
+}
+```
