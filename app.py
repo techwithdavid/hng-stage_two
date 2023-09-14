@@ -65,7 +65,8 @@ def create_person():
             connect.close()
 
             return jsonify({
-                "status": "Successful"
+                "status": "Successful",
+                "message": f"{name} created successfully"
                 }), 201
     except Exception as e:
         return jsonify({
