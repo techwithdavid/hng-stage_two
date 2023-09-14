@@ -53,7 +53,8 @@ curl -H "Content-Type: application/json" -X POST -d '{"name": "Techwithdavid"}' 
 response:
 ```
 {
-    "status": "Successful"
+    "status": "Successful",
+    "message": "Techwithdavid created successfully"
 }
 ```
 
@@ -69,6 +70,7 @@ response:
 ```
 {
     "status": "Successful"
+    "message": "Name of user with ID 3 changed to Techwithdavid"
 }
 ```
 
@@ -84,6 +86,7 @@ response:
 ```
 {
     "status": "Successful"
+    "message": "User with ID 5 deleted"})
 }
 ```
 
