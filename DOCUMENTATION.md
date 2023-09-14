@@ -30,7 +30,7 @@ response:
 ]
 ```
 
-### GET /api/user_id
+### GET  /api/user_id
 returns one person by ID
 
 curl command:
@@ -46,7 +46,7 @@ response:
 }
 ```
 
-### POST /api
+### POST    /api
 Adds a new person to the database
 
 curl command
