@@ -1,7 +1,7 @@
 # Endpoints
 
 ### GET /api
-returns all persons
+Returns all persons
 
 curl command:
 ```
@@ -17,21 +17,17 @@ response:
     },
     {
 	"id": 2,
-	"name": "David"
+	"name": "Ola"
     },
     {
 	"id": 3,
-	"name": "Ola"
-    },
-    {
-	"id": 4,
-	"name": "Ola"
+	"name": "Techwithdavid"
     }
 ]
 ```
 
-### GET  /api/user_id
-returns one person by ID
+### GET /api/user_id
+Returns one person by ID
 
 curl command:
 ```
@@ -46,7 +42,7 @@ response:
 }
 ```
 
-### POST    /api
+### POST /api
 Adds a new person to the database
 
 curl command
@@ -60,3 +56,16 @@ response:
     "status": "Successful"
 }
 ```
+
+### PUT /api/user_id
+Updates the name of a person by ID
+
+curl command
+```
+curl https://twd-hng-crud-app.onrender.com/api/3 -X PUT -H "Content-Type: application/json" -d '{"name": "Techwithdavid"}'
+```
+
+response:
+```                                                                         {                                                                               "status": "Successful"                                                  }                                                                           ```
+
+
