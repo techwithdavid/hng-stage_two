@@ -89,7 +89,7 @@ def update_user(user_id):
         connect.commit()
         connect.close()
 
-        return jsonify({"status": "Successful"})
+        return jsonify({"status": "Successful", "message": f"Name of user with ID {user_id} changed to {name}"})
     except Exception as e:
         return jsonify({
             "status": "Not successful",
@@ -105,7 +105,7 @@ def delete_user(user_id):
         connect.commit()
         connect.close()
 
-        return jsonify({"status": "Successful"})
+        return jsonify({"status": "Successful", "message": f"User with ID {user_id} deleted"})
     except Exception as e:
         return jsonify({
             "status": "Not successful",
